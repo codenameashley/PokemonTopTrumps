@@ -3,17 +3,16 @@
 #       |     ***TOP TRUMPS***      |       #
 #       |---------------------------|       #
 
-## Importing requests for API and random
+## Importing requests and random module
 import requests
 import random
 
-## Creating a function generate a random number using random module
-
+## Creating a function to generate a random number using random module
 def randompokemonnumber():
     pokemon_number = random.randint(1, 155)
     return pokemon_number
 
-## Function used to get pokemon card for game
+## Function for retrieving a random pokemon from pokeAPI
 def pokemoncard():
     pokeAPI= randompokemonnumber()
     pokeurl = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokeAPI)
@@ -25,7 +24,8 @@ def pokemoncard():
                  'weight': mypokemon['weight'],
                  'base_xp': mypokemon['base_experience'],
                  }
-## Pokemon Card 1 from PokeAPI - Informing player of card 1 name
+
+## Pokemon cards generated from function above - 3 variables for a 3 card deck
 pokecard1 = pokemoncard()
 pokecard2 = pokemoncard()
 pokecard3 = pokemoncard()
@@ -33,10 +33,11 @@ print('Your 1st card is {}, your 2nd card is {}, your 3rd card is {} '.format(po
 
 
 
-## Creating a function which returns stats from the chosen pokemon card
+## Asking the player to choose which card to use in the game
 chosen_card = int(input(
         'Which card would you like to play against your opponent? Type 1 for 1st card, 2 for 2nd card, 3 for 3rd card'))
 
+## Creating a function which returns stats from the chosen pokemon card
 def cardforgame():
     if chosen_card == 1:
         return ('Name {}, id {}, height {}, weight {}, base experience {}'.format(pokecard1['name'],
@@ -61,15 +62,13 @@ def cardforgame():
     else:
         return print('You need to choose a card, please run the code again and start over')
 
-## Informing player of their chosen card's stat
-
+## Informing the player of their chosen card's stat
 print('You chose to play {}'.format(cardforgame()))
 
+## Asking the player which stat from their chosen card they would like to use in the game
+my_stat = input('What stat do you want to choose? Choose between *id, height, weight, base xp* ')
 
-## if elif statement will return certain card and stats if a condition is satisfied
-## condition is which card and stat is typed in by the player in the above functions
-
-my_stat = input('What Stat do you want to choose? Choose between *id, height, weight, base xp* ')
+## if/elif statements that will return a certain stat depending which card and stat the player chose
 def my_card_and_my_stat():
     if chosen_card == 1:
         if my_stat == 'id':
@@ -113,9 +112,7 @@ def my_card_and_my_stat():
         return print('You need to chose')
 
 
-## Assigning opponent a card for this game from the 3 card deck
-## Same process as above
-
+## Retrieving a card for the opponent from pokeAPI
 def opponentscard():
     pokeAPI = randompokemonnumber()
     pokeurl = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokeAPI)
@@ -128,7 +125,7 @@ def opponentscard():
             'base_xp': theirpokemon['base_experience'],
             }
 
-## Informing player of opponent's cards
+## Informing player of opponent's cards - only the pokemon's name will print
 oppcard1 = opponentscard()
 oppcard2 = opponentscard()
 oppcard3 = opponentscard()
@@ -136,7 +133,6 @@ print('Your opponents cards are {}, {}, {}'.format(oppcard1['name'], oppcard2['n
 
 ## Assigning the opponent a card/stat through random generated number
 ## It will return a chosen card/stat when condition is satisfied
-
 def opponents_card_and_stat():
     cardxstat = random.randint(1, 12)
     if cardxstat == 1:
@@ -164,7 +160,7 @@ def opponents_card_and_stat():
     else:
         return oppcard3['base_xp']
 
-## Assigning functions above to a variable
+## Assigning the functions above to a variable
 z = opponents_card_and_stat()
 a = my_card_and_my_stat()
 
@@ -175,7 +171,6 @@ print('2...')
 print('1...')
 
 ## Comparing my stat to opponents randomly generated stat
-
 if a > z:
     print('Alright! You win!')
     print('Your stat was {}, your opponents stat was {}'.format(a, z))
