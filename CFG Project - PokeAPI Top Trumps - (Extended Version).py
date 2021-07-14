@@ -18,7 +18,7 @@ playergym = input('What gym or team do you belong to?\n')
 q = playername
 r = playergym
 
-print('Battle Master: "A new contender has entered the arena!\n')
+print('Battle Master: "A new contender has entered the arena!')
 
 def opponent():
     i = random.randint(1, 5)
@@ -323,10 +323,9 @@ def opponents_card_and_stat1():
     if k == 5:
         if my_stat1 == 'weight':
             return oppcard5['weight']
-    else:
-        if k == 5:
-            if my_stat1 == 'base xp':
-                return oppcard5['base_xp']
+    if k == 5:
+        if my_stat1 == 'base xp':
+            return oppcard5['base_xp']
 opponents_card_and_stat1()
 
 print('         **BATTLE STAGE**            \n')
@@ -358,7 +357,7 @@ def scoringquotes1():
         for line in myfile:
             if 'Player ' + str(1) in line:
              print(
-                '\nBattle Master: "The battle is heating up after round 1! \nits {} who makes it to the score board"\n{} says: "Dont get too comfy rookie this is just the start"'.format(
+                '\nBattle Master: "The battle is heating up after round 1! \nits {} who makes it on to the score board"\n{} says: "Dont get too comfy rookie this is just the start"'.format(
                     q, l))
             elif 'Opponent ' + str(1) in line:
                 print(
@@ -366,7 +365,7 @@ def scoringquotes1():
                     l, l))
 scoringquotes1()
 
-print('         **ROUND 2**         \n')
+print('\n         **ROUND 2**         \n')
 
 randompokemonnumber()
 
@@ -377,7 +376,7 @@ print('PREPARATION STAGE\n')
 print('Pokedex: "Your current pokemons are -\n{}"'.format(pokeballs))
 
 chosen_card2 = int(input(
-    'Pokedex "Which pokemon would you like to play against {} ? Type 1 for {}, 2 for {}, 3 for {}, 4 for {}, 5 for {}"\n'.format(
+    'Pokedex "Which pokemon would you like to play against {}? Type 1 for {}, 2 for {}, 3 for {}, 4 for {}, 5 for {}"\n'.format(
         l, pokecard1['name'],
         pokecard2['name'],
         pokecard3['name'],
@@ -557,7 +556,7 @@ def opponents_card_and_stat2():
     if k == 5:
         if my_stat2 == 'weight':
             return oppcard5['weight']
-    else:
+    if k == 5:
         if my_stat2 == 'base xp':
             return oppcard5['base_xp']
 
@@ -598,7 +597,7 @@ def scoringquotes2():
                     l, l))
 scoringquotes2()
 
-print('             **ROUND 3 - FINAL ROUND**            \n')
+print('\n             **ROUND 3 - FINAL ROUND**            \n')
 
 randompokemonnumber()
 
@@ -609,7 +608,8 @@ print('PREPARATION STAGE\n')
 print('Pokedex: "Your current pokemons are - {}"'.format(pokeballs))
 
 chosen_card3 = int(input(
-    'Pokedex: "Which pokemon would you like to play against {} ? Type 1 for {}, 2 for {}, 3 for {}, 4 for {}, 5 for {}"\n'.format(
+    'Pokedex: "Which pokemon would you like to play against {}? Type 1 for {}, 2 for {}, 3 for {}, 4 for {}, 5 for {}'
+    'This is the final round, choose wisely"\n'.format(
         l, pokecard1['name'],
         pokecard2['name'],
         pokecard3['name'],
@@ -788,10 +788,9 @@ def opponents_card_and_stat3():
     if k == 5:
         if my_stat3 == 'weight':
             return oppcard5['weight']
-    else:
-        if k == 5:
-            if my_stat3 == 'base xp':
-                return oppcard5['base_xp']
+    if k == 5:
+        if my_stat3 == 'base xp':
+            return oppcard5['base_xp']
 
 opponents_card_and_stat3()
 
